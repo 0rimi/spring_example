@@ -19,4 +19,11 @@ public interface ReviewDAO {
 			@Param("point") double point,
 			@Param("review") String review);
 	
+	public int updateReviewById(
+			@Param("id") int id,
+			@Param("review") String review
+			);
+	
+	public void deleteReviewById(int id);
+	
 }
