@@ -2,12 +2,14 @@ package com.example.lesson04;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.lesson04.bo.UserBO;
+import com.example.lesson04.model.User;
 
 @RequestMapping("/lesson04/ex01")
 @Controller
@@ -39,9 +41,14 @@ public class Lesson04Ex01Controller {
 	
 	// http://localhost/lesson04/ex01/get_last_user_view
 	@GetMapping("/get_last_user_view")
-	public String getLastUserView() {
+	public String getLastUserView(Model model) {
 		
-		// db selectOne
+		// db selectOne : 가장 마지막에 추가된 사람 한명 가져오기
+		User user = userBO.getLastUser();
+		
+		// model
+		model.addAttribute("seller",user);
+		model.addAttribute("title", "회원정보");
 		
 		return "lesson04/getLastUser";
 	}
