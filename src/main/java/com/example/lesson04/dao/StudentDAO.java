@@ -9,5 +9,7 @@ public interface StudentDAO {
 	
 	//insert
 	public void insertStudent(Student student);
-
+	
+	//selectOne By Id
+	public Student selectStudentById(int id);
 }

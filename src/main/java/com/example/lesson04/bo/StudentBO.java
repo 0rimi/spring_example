@@ -16,5 +16,10 @@ public class StudentBO {
 	public void addStudent(Student student) {
 		studentDAO.insertStudent(student);
 	}
+	
+	// selectOne By ID
+	public Student getStudentByID(int id) {
+		return studentDAO.selectStudentById(id);
+	}
 
 }
