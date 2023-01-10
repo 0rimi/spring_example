@@ -59,7 +59,7 @@
 				let name = $('#name').val().trim();
 				
 				// 유효성 검사
-				if(name == ''){
+				if(name.length < 1){
 					$('#nameStatusArea').append('<span class="text-danger">이름이 비어있습니다.</span>');
 					return;
 				}
